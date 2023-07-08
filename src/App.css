@@ -1,8 +1,9 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   color: white;
 }
 .Header {
+  text-align: center;
   color: #443e3e;
   /* text-shadow: 1px 1px 5px #fff; */
   text-transform: uppercase;
@@ -11,3 +12,48 @@
   letter-spacing: 0.5rem;
 }
 /* write your parent styles in here for your App.js */
+.accordeon {
+  background-color: darkcyan;
+  margin: 20px;
+  height: 3rem;
+  overflow: hidden;
+
+  -webkit-transition: max-height 1s;
+  -moz-transition: max-height 1s;
+  -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  transition: max-height 1s;
+}
+.acc-title {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0 1.5rem;
+  transition: background-color 0.5s;
+}
+.acc-title:hover {
+  background-color: #444;
+}
+.accordeon.open {
+  /* background-color: red; */
+  height: auto;
+}
+.accordeon.open .acc-title {
+  border-bottom: 1px solid white;
+}
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+.accordeon .arrow {
+  rotate: -90deg;
+}
+
+.accordeon.open .arrow {
+  rotate: 90deg;
+}
