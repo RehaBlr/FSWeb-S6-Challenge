@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const App = () => {
-  const [karakterler, setKarakter] = useState([]);
+  // const [karakterler, setKarakter] = useState([]);
+  const [characters, setCharacters] = useState([]);
+
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -11,11 +13,11 @@ const App = () => {
   // sync up with, if any.
   useEffect(() => {
     axios
-      .get("https://swapi.dev/api/people")
+      .get("https://swapi.dev/api/people/")
       .then(function (response) {
         // handle success
-        setKarakter(response.data.results);
-        console.log(response.data.results);
+        setCharacters(response.data);
+        console.log(response.data);
       })
       .catch(function (error) {
         // handle error
@@ -31,8 +33,8 @@ const App = () => {
     <div className="App">
       <h1 className="Header">Karakterler </h1>
 
-      {karakterler.map((karakter, ind) => {
-        return <div key={ind}>{karakter.name}</div>;
+      {characters.map((character, ind) => {
+        return <div key={ind}>{character.name}</div>;
       })}
     </div>
   );
